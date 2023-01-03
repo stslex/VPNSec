@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">VPNSec</string>
+    <string name="app_title">VPN IpSec</string>
 </resources>

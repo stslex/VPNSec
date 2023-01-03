@@ -1,10 +1,16 @@
+enableFeaturePreview("VERSION_CATALOGS")
+
 pluginManagement {
+    @Suppress("UnstableApiUsage")
+    includeBuild("build-logic")
     repositories {
+        gradlePluginPortal()
         google()
         mavenCentral()
-        gradlePluginPortal()
     }
 }
+
+@Suppress("UnstableApiUsage")
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
@@ -12,5 +18,10 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
+
 rootProject.name = "VPNSec"
-include ':app'
+include(":app")
+include(":core-ui")
+include(":feature-home")
+include(":core")
+include(":core-navigation")
