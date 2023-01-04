@@ -30,7 +30,11 @@ android {
 
 dependencies {
     implementation(project(":core"))
-    implementation(project(":core-ui"))
-    implementation(project(":core-navigation"))
-    implementation(project(":feature-home"))
+    val composeBom = platform(libs.androidx.compose.bom)
+    api(composeBom)
+    testApi(composeBom)
+    api(libs.bundles.compose)
+    api(libs.bundles.accompanist)
+    api(libs.androidx.constraintlayout.compose)
+    testApi(libs.bundles.test.ui)
 }
