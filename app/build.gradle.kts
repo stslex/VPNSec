@@ -34,7 +34,5 @@ dependencies {
     api(composeBom)
     testApi(composeBom)
     api(libs.bundles.compose)
-    api(libs.bundles.accompanist)
-    api(libs.androidx.constraintlayout.compose)
     testApi(libs.bundles.test.ui)
 }

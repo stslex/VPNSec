@@ -45,9 +45,7 @@ androidx-compose-viewmodel = { group = "androidx.lifecycle", name = "lifecycle-v
 androidx-navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version = "2.5.3" }
 androidx-constraintlayout-compose = { group = "androidx.constraintlayout", name = "constraintlayout-compose", version = "1.0.1" }
 
-accompanist-systemuicontroller = { group = "com.google.accompanist", name = "accompanist-systemuicontroller", version.ref = "accompanist" }
 coil-compose = { group = "io.coil-kt", name = "coil-compose", version.ref = "coil" }
-landscapist-glide = { group = "com.github.skydoves", name = "landscapist-glide", version.ref = "landscapist" }
 
 koin-core = { group = "io.insert-koin", name = "koin-core", version.ref = "koin" }
 koin-ktor = { group = "io.insert-koin", name = "koin-ktor", version.ref = "koin" }
@@ -72,12 +70,10 @@ compose = [
     "androidx-compose-ui-tooling-preview",
     "androidx-compose-material3-wsc",
     "coil-compose",
-    "landscapist-glide",
     "android-material",
     "androidx-compose-activity",
     "androidx-compose-viewmodel"
 ]
-accompanist = ["accompanist-systemuicontroller"]
 koin = [
     "koin-core",
     "koin-android",
