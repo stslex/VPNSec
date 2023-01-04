@@ -21,4 +21,3 @@ dependencyResolutionManagement {
 
 rootProject.name = "VPNSec"
 include(":app")
-include(":core")

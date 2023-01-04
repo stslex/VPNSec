@@ -25,7 +25,6 @@
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/build-logic" />
             <option value="$PROJECT_DIR$/build-logic/dependencies" />
-            <option value="$PROJECT_DIR$/core" />
           </set>
         </option>
       </GradleProjectSettings>
