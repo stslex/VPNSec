@@ -1,5 +1,6 @@
 package com.stslex.vpnsec.ui
 
+import android.content.Context
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -13,6 +14,8 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.DisposableEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -24,7 +27,9 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.google.accompanist.systemuicontroller.SystemUiController
 import com.google.accompanist.systemuicontroller.rememberSystemUiController
-import com.stslex.vpnsec.R
+import com.stslex.home_feature.data.DataStore.vpnDataStore
+import com.stslex.home_feature.service.VpnState
+import kotlinx.coroutines.flow.map
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -66,8 +71,13 @@ fun AppInit(
 @Composable
 fun AppTopAppbar(
     modifier: Modifier = Modifier,
-    scrollBehavior: TopAppBarScrollBehavior
+    scrollBehavior: TopAppBarScrollBehavior,
+    context: Context = LocalContext.current
 ) {
+    val titleState by remember {
+        context.vpnDataStore.data.map { it.state }
+    }.collectAsState(initial = VpnState.DISCONNECTED)
+
     LargeTopAppBar(
         modifier = modifier,
         scrollBehavior = scrollBehavior,
@@ -76,7 +86,7 @@ fun AppTopAppbar(
                 modifier = modifier
                     .fillMaxWidth()
                     .padding(16.dp),
-                text = LocalContext.current.getString(R.string.app_title),
+                text = context.getString(titleState.stateRes),
                 style = MaterialTheme.typography.displayMedium,
                 textAlign = TextAlign.Center
             )

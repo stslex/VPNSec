@@ -19,7 +19,7 @@ import java.nio.charset.StandardCharsets.US_ASCII
 import java.util.concurrent.TimeUnit
 
 
-class VpnSecConnection(
+class VpnSecConnectionTest(
     private val service: VpnService?,
     private val connectionId: Int,
     private val serverName: String?,
@@ -31,7 +31,7 @@ class VpnSecConnection(
     private val packages: Set<String>?
 ) : Runnable {
     /**
-     * Callback interface to let the [VpnSecService] know about new connections
+     * Callback interface to let the [VpnSecServiceTest] know about new connections
      * and update the foreground notification with connection status.
      */
     fun interface OnEstablishListener {
@@ -272,7 +272,7 @@ class VpnSecConnection(
     }
 
     private fun getTag(): String {
-        return VpnSecConnection::class.java.simpleName + "[" + connectionId + "]"
+        return VpnSecConnectionTest::class.java.simpleName + "[" + connectionId + "]"
     }
 
     companion object {
