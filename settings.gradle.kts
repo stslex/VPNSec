@@ -21,7 +21,3 @@ dependencyResolutionManagement {
 
 rootProject.name = "VPNSec"
 include(":app")
-include(":core-ui")
-include(":feature-home")
-include(":core")
-include(":core-navigation")

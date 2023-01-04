@@ -28,9 +28,16 @@ android {
     }
 }
 
+/*
+* will be used in the feature
+*/
 dependencies {
-    implementation(project(":core"))
-    implementation(project(":core-ui"))
-    implementation(project(":core-navigation"))
-    implementation(project(":feature-home"))
+    val composeBom = platform(libs.androidx.compose.bom)
+    implementation(composeBom)
+    testImplementation(composeBom)
+    implementation(libs.bundles.compose)
+    testImplementation(libs.bundles.test.ui)
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.bundles.koin)
+    implementation(libs.bundles.test)
 }
