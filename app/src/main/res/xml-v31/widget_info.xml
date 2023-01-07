@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    android:configure="com.stslex.vpnsec.WidgetSmallConfigActivity"
     android:description="@string/app_widget_circle_description"
     android:initialLayout="@layout/appwidget_provider_layout_small"
     android:maxResizeWidth="@dimen/widget_size_medium"
@@ -9,4 +10,4 @@
     android:previewLayout="@layout/appwidget_provider_layout_small"
     android:resizeMode="horizontal|vertical"
     android:updatePeriodMillis="@integer/widget_update_period"
-    android:widgetFeatures="reconfigurable|configuration_optional" />
+    android:widgetFeatures="reconfigurable" />

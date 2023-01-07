@@ -4,5 +4,6 @@
     android:initialLayout="@layout/appwidget_provider_layout_small"
     android:minWidth="@dimen/widget_size_smallest"
     android:minHeight="@dimen/widget_size_smallest"
+    android:configure="com.stslex.vpnsec.WidgetSmallConfigActivity"
     android:updatePeriodMillis="@integer/widget_update_period"
     android:widgetCategory="home_screen" />
