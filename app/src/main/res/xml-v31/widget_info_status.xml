@@ -4,7 +4,7 @@
     android:initialLayout="@layout/appwidget_provider_layout_status"
     android:maxResizeWidth="@dimen/widget_size_large"
     android:maxResizeHeight="@dimen/widget_size_large"
-    android:minWidth="@dimen/widget_size_medium"
+    android:minWidth="@dimen/widget_size_small"
     android:minHeight="@dimen/widget_size_smallest"
     android:previewLayout="@layout/appwidget_provider_layout_status"
     android:resizeMode="vertical|horizontal"
