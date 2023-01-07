@@ -6,4 +6,8 @@
     <string name="app_widget_status_title_connect">connected</string>
     <string name="app_widget_status_title_disconnected">disconnected</string>
     <string name="app_icon_vpn_description">vpn_icon_key</string>
+
+    <string name="app_widget_title_circle">circle widget</string>
+    <string name="app_widget_title_rounded">rounded widget</string>
+    <string name="app_widget_title_transparent">transparent widget</string>
 </resources>

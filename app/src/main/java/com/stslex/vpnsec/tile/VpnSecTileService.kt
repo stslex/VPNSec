@@ -1,9 +1,9 @@
-package com.stslex.vpnsec
+package com.stslex.vpnsec.tile
 
 import android.service.quicksettings.Tile
 import android.service.quicksettings.TileService
-import com.stslex.vpnsec.BaseExt.isVpnConnect
-import com.stslex.vpnsec.BaseExt.settingsIntent
+import com.stslex.vpnsec.base.BaseExt.isVpnConnect
+import com.stslex.vpnsec.base.BaseExt.settingsIntent
 
 class VpnSecTileService : TileService() {
 

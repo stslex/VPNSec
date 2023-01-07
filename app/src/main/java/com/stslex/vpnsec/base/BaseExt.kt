@@ -1,5 +1,6 @@
-package com.stslex.vpnsec
+package com.stslex.vpnsec.base
 
+import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.net.ConnectivityManager
@@ -17,6 +18,14 @@ object BaseExt {
             .getNetworkCapabilities(connectiveManager.activeNetwork)
             ?.hasTransport(TRANSPORT_VPN)
             ?: false
+
+    val Context.pendingSettingsIntent: PendingIntent
+        get() = PendingIntent.getActivity(
+            this,
+            0,
+            settingsIntent,
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+        )
 
     private val Context.connectiveManager: ConnectivityManager
         get() = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
