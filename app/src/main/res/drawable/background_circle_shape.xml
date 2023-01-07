@@ -5,6 +5,6 @@
     <solid android:color="?android:attr/colorBackground" />
 
     <size
-        android:width="50dp"
-        android:height="50dp" />
+        android:width="@dimen/widget_size_smallest"
+        android:height="@dimen/widget_size_smallest" />
 </shape>

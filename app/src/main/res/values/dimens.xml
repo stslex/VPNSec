@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="widget_size_smallest">50dp</dimen>
+    <dimen name="widget_size_medium">100dp</dimen>
+    <dimen name="widget_size_large">400dp</dimen>
+    <dimen name="padding_small">8dp</dimen>
+    <dimen name="widget_padding_icon">20dp</dimen>
+    <integer name="widget_update_period">30000</integer>
+</resources>

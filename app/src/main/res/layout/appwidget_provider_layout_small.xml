@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:background="@drawable/background_circle_shape"
-        android:contentDescription="@null"
-        android:padding="20dp"
+        android:contentDescription="@string/app_icon_vpn_description"
+        android:padding="@dimen/widget_padding_icon"
         android:src="@drawable/baseline_vpn_key_24" />
 </FrameLayout>
