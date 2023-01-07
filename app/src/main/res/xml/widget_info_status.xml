@@ -2,6 +2,7 @@
 <appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
     android:description="@string/app_widget_status_description"
     android:initialLayout="@layout/appwidget_provider_layout_status"
-    android:minWidth="@dimen/widget_size_medium"
+    android:minWidth="@dimen/widget_size_small"
     android:minHeight="@dimen/widget_size_smallest"
+    android:resizeMode="vertical|horizontal"
     android:updatePeriodMillis="@integer/widget_update_period" />
