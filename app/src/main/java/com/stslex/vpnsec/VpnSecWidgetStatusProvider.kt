@@ -18,38 +18,63 @@ class VpnSecWidgetStatusProvider : AppWidgetProvider() {
         appWidgetManager: AppWidgetManager,
         appWidgetIds: IntArray
     ) {
-        val remoteViews = context.buildUpdate()
-        appWidgetManager.updateAppWidget(appWidgetIds, remoteViews)
+        context.updateAppWidget(appWidgetManager, appWidgetIds)
     }
 
     override fun onReceive(context: Context?, intent: Intent?) {
         super.onReceive(context, intent)
-        if (context == null || intent == null) return
-        if (intent.extras?.getInt(REQUEST_CODE) == REQUEST_CODE_FROM_COLLECTION_WIDGET) {
-            val remoteViews = context.buildUpdate()
-            val componentName = ComponentName(context, VpnSecWidgetStatusProvider::class.java)
-            AppWidgetManager.getInstance(context).updateAppWidget(componentName, remoteViews)
-            context.startActivity(settingsIntent)
+        if (context == null ||
+            intent == null ||
+            intent.extras?.getInt(REQUEST_CODE) != REQUEST_CODE_FROM_COLLECTION_WIDGET
+        ) {
+            return
+        }
+        context.apply {
+            updateAppWidget()
+            startActivity(settingsIntent)
         }
     }
 
-    private fun Context.buildUpdate(): RemoteViews =
+    private fun Context.updateAppWidget() {
+        val remoteViews = buildUpdateViews()
+        val componentName = ComponentName(this, VpnSecWidgetStatusProvider::class.java)
+        AppWidgetManager.getInstance(this).updateAppWidget(componentName, remoteViews)
+    }
+
+    private fun Context.updateAppWidget(
+        appWidgetManager: AppWidgetManager,
+        appWidgetIds: IntArray
+    ) {
+        val remoteViews = buildUpdateViews()
+        appWidgetManager.updateAppWidget(appWidgetIds, remoteViews)
+    }
+
+    private fun Context.buildUpdateViews(): RemoteViews =
         RemoteViews(packageName, R.layout.appwidget_provider_layout_status).apply {
-            val statusText = if (isVpnConnect) "connected" else "disconnected"
             setTextViewText(R.id.vpnStatusTextView, statusText)
             setOnClickPendingIntent(R.id.vpnLayout, onCheckedChangePendingIntent)
         }
+
+    private val Context.statusText: String
+        get() = if (isVpnConnect) {
+            R.string.app_widget_status_title_connect
+        } else {
+            R.string.app_widget_status_title_disconnected
+        }.let(::getString)
 
     private val Context.onCheckedChangePendingIntent: PendingIntent
         get() = PendingIntent.getBroadcast(
             this,
             REQUEST_CODE_FROM_COLLECTION_WIDGET,
-            Intent(this, VpnSecWidgetStatusProvider::class.java).apply {
-                putExtra(EXTRA_VIEW_ID, R.id.vpnLayout)
-                putExtra(REQUEST_CODE, REQUEST_CODE_FROM_COLLECTION_WIDGET)
-            },
+            widgetStatusIntent,
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_MUTABLE
         )
+
+    private val Context.widgetStatusIntent: Intent
+        get() = Intent(this, VpnSecWidgetStatusProvider::class.java).apply {
+            putExtra(EXTRA_VIEW_ID, R.id.vpnLayout)
+            putExtra(REQUEST_CODE, REQUEST_CODE_FROM_COLLECTION_WIDGET)
+        }
 
     companion object {
         const val REQUEST_CODE_FROM_COLLECTION_WIDGET = 2

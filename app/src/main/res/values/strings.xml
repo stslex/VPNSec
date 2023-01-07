@@ -1,5 +1,9 @@
 <resources>
     <string name="app_name">VPNSec</string>
     <string name="app_title">VPN IpSec</string>
-    <string name="app_widget_description">vpn toggle</string>
+    <string name="app_widget_circle_description">primary vpn toggle</string>
+    <string name="app_widget_status_description">primary vpn toggle with status text</string>
+    <string name="app_widget_status_title_connect">connected</string>
+    <string name="app_widget_status_title_disconnected">disconnected</string>
+    <string name="app_icon_vpn_description">vpn_icon_key</string>
 </resources>

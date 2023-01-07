@@ -7,23 +7,27 @@
     android:background="?android:attr/colorBackground"
     android:gravity="center"
     android:orientation="horizontal"
-    android:padding="8dp"
+    android:padding="@dimen/padding_small"
     android:theme="@style/Theme.VPNSec"
     tools:ignore="UseCompoundDrawables">
 
     <ImageView
         android:id="@+id/vpnImageView"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_gravity="center"
-        android:contentDescription="@null"
-        android:padding="8dp"
+        android:contentDescription="@string/app_icon_vpn_description"
+        android:padding="@dimen/padding_small"
         android:src="@drawable/baseline_vpn_key_24" />
 
     <TextView
         android:id="@+id/vpnStatusTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:padding="8dp"
-        android:textColor="?android:attr/textColorPrimary" />
+        style="@style/App.TextAppearance.WidgetStatus"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:autoSizeTextType="uniform"
+        android:gravity="center"
+        android:maxLines="1"
+        android:padding="@dimen/padding_small"
+        android:text="@string/app_widget_status_title_disconnected" />
 </LinearLayout>
