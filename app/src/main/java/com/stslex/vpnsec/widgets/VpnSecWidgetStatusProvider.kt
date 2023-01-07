@@ -1,4 +1,4 @@
-package com.stslex.vpnsec
+package com.stslex.vpnsec.widgets
 
 import android.app.PendingIntent
 import android.appwidget.AppWidgetManager
@@ -7,8 +7,9 @@ import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
 import android.widget.RemoteViews
-import com.stslex.vpnsec.BaseExt.isVpnConnect
-import com.stslex.vpnsec.BaseExt.settingsIntent
+import com.stslex.vpnsec.R
+import com.stslex.vpnsec.base.BaseExt.isVpnConnect
+import com.stslex.vpnsec.base.BaseExt.settingsIntent
 
 
 class VpnSecWidgetStatusProvider : AppWidgetProvider() {
@@ -21,20 +22,23 @@ class VpnSecWidgetStatusProvider : AppWidgetProvider() {
         context.updateAppWidget(appWidgetManager, appWidgetIds)
     }
 
+
     override fun onReceive(context: Context?, intent: Intent?) {
         super.onReceive(context, intent)
-        if (context == null ||
-            intent == null ||
-            intent.extras?.getInt(REQUEST_CODE) != REQUEST_CODE_FROM_COLLECTION_WIDGET
-        ) {
-            return
-        }
-        context.apply {
-            updateAppWidget()
-            startActivity(settingsIntent)
+        if (context == null || intent == null) return
+        when (intent.extras?.getInt(REQUEST_CODE)) {
+            REQUEST_CODE_FROM_COLLECTION_WIDGET -> {
+                context.updateAppWidget()
+                context.startActivity(settingsIntent)
+            }
+
+            else -> Unit
         }
     }
 
+    /*
+    * TODO Add REMOTE Views Factory
+    */
     private fun Context.updateAppWidget() {
         val remoteViews = buildUpdateViews()
         val componentName = ComponentName(this, VpnSecWidgetStatusProvider::class.java)
@@ -72,13 +76,11 @@ class VpnSecWidgetStatusProvider : AppWidgetProvider() {
 
     private val Context.widgetStatusIntent: Intent
         get() = Intent(this, VpnSecWidgetStatusProvider::class.java).apply {
-            putExtra(EXTRA_VIEW_ID, R.id.vpnLayout)
             putExtra(REQUEST_CODE, REQUEST_CODE_FROM_COLLECTION_WIDGET)
         }
 
     companion object {
         const val REQUEST_CODE_FROM_COLLECTION_WIDGET = 2
-        const val EXTRA_VIEW_ID = "extra_view_id"
         const val REQUEST_CODE = "request_code"
     }
 }

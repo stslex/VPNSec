@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <appwidget-provider xmlns:android="http://schemas.android.com/apk/res/android"
     android:description="@string/app_widget_circle_description"
-    android:initialLayout="@layout/appwidget_provider_layout_small"
+    android:initialLayout="@layout/appwidget_provider_layout_circle"
     android:minWidth="@dimen/widget_size_smallest"
     android:minHeight="@dimen/widget_size_smallest"
-    android:configure="com.stslex.vpnsec.WidgetSmallConfigActivity"
+    android:configure="com.stslex.vpnsec.widgets.configure.WidgetSmallConfigActivity"
     android:updatePeriodMillis="@integer/widget_update_period"
     android:widgetCategory="home_screen" />

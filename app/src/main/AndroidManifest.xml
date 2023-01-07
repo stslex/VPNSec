@@ -16,7 +16,7 @@
         tools:targetApi="33">
 
         <service
-            android:name=".VpnSecTileService"
+            android:name=".tile.VpnSecTileService"
             android:exported="true"
             android:icon="@drawable/baseline_vpn_key_24"
             android:label="vpn"
@@ -27,7 +27,7 @@
         </service>
 
         <receiver
-            android:name=".VpnSecWidgetProvider"
+            android:name=".widgets.VpnSecWidgetProvider"
             android:exported="false">
 
             <intent-filter>
@@ -40,7 +40,7 @@
         </receiver>
 
         <receiver
-            android:name=".VpnSecWidgetStatusProvider"
+            android:name=".widgets.VpnSecWidgetStatusProvider"
             android:exported="false">
 
             <intent-filter>
@@ -53,7 +53,7 @@
         </receiver>
 
         <activity
-            android:name=".WidgetSmallConfigActivity"
+            android:name=".widgets.configure.WidgetSmallConfigActivity"
             android:exported="false">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />

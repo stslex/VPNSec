@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/vpnLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:theme="@style/Theme.VPNSec">
+
+    <ImageView
+        android:id="@+id/vpnImageView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:background="@drawable/background_rounded_shape"
+        android:contentDescription="@string/app_icon_vpn_description"
+        android:padding="@dimen/widget_padding_icon"
+        android:src="@drawable/baseline_vpn_key_24" />
+</FrameLayout>

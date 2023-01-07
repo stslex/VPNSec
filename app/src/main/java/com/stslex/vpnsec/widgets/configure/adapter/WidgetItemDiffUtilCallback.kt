@@ -1,6 +1,7 @@
-package com.stslex.vpnsec.recycler
+package com.stslex.vpnsec.widgets.configure.adapter
 
 import androidx.recyclerview.widget.DiffUtil
+import com.stslex.vpnsec.widgets.configure.model.WidgetItem
 
 class WidgetItemDiffUtilCallback(
     private val oldList: List<WidgetItem>,
